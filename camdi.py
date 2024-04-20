@@ -7,6 +7,7 @@ import sys
 
 prefix = f"{Fore.YELLOW}[CD]{Fore.RESET}"
 version = f"v 1.2"
+dev = False
 
 def updater():
     os.system("title " + f"CamDi {version}")
@@ -30,14 +31,19 @@ def updater():
         f = open("temp/info.txt", "w")
         f.close()
         link = 'https://raw.githubusercontent.com/Hrnec561/camdi/main/version.txt'
-        file_name = "temp/version.exe"
+        file_name = "temp/version.txt"
         with open(file_name, "wb") as f:
             response = requests.get(link, stream=True)
-            if version == f"v {content}":
-                pass
-            else:
-                content = f"v {content}"
-                update(content)
+            f.write(response.content)
+        f = open("temp/version.txt", "r")
+        content = f.read()
+        content = content.replace("\n", "")
+        f.close()
+        if version == f"v {content}":
+            pass
+        else:
+            content = f"v {content}"
+            update(content)
         os.remove("temp/version.txt")
         if os.path.exists("temp/exiftool.exe") == True:
             pass
@@ -81,29 +87,32 @@ def update(content):
           {version} Update
     ''')
         print(f"{prefix} Downloading update...")
-        if ".py" in __file__:
-            link = "https://raw.githubusercontent.com/Hrnec561/camdi/main/camdi.py"
+        if dev == True:
+            menu()
         else:
-            link = "https://raw.githubusercontent.com/Hrnec561/camdi/main/camdi.exe"
-        file_name = "main.py"
-        with open(__file__, "wb") as f:
-            response = requests.get(link, stream=True)
-            total_length = response.headers.get('content-length')
-
-            if total_length is None:
-                f.write(response.content)
+            if ".py" in __file__:
+                link = "https://raw.githubusercontent.com/Hrnec561/camdi/main/camdi.py"
             else:
-                dl = 0
-                total_length = int(total_length)
-                for data in response.iter_content(chunk_size=4096):
-                    dl += len(data)
-                    f.write(data)
-                    done = int(20 * dl / total_length)
-                    sys.stdout.write(f"\r{prefix} [%s%s]" % (f'{Fore.YELLOW}={Fore.RESET}' * done, '=' * (20-done)) )
-                    sys.stdout.flush()
-        print("\n" + f"{prefix} Restart required")
-        input("\n" + f"{prefix} Update sucessfull press any key to continue...")
-        exit()
+                link = "https://raw.githubusercontent.com/Hrnec561/camdi/main/camdi.exe"
+            file_name = "main.py"
+            with open(__file__, "wb") as f:
+                response = requests.get(link, stream=True)
+                total_length = response.headers.get('content-length')
+
+                if total_length is None:
+                    f.write(response.content)
+                else:
+                    dl = 0
+                    total_length = int(total_length)
+                    for data in response.iter_content(chunk_size=4096):
+                        dl += len(data)
+                        f.write(data)
+                        done = int(20 * dl / total_length)
+                        sys.stdout.write(f"\r{prefix} [%s%s]" % (f'{Fore.YELLOW}={Fore.RESET}' * done, '=' * (20-done)) )
+                        sys.stdout.flush()
+            print("\n" + f"{prefix} Restart required")
+            input("\n" + f"{prefix} Update sucessfull press any key to continue...")
+            exit()
     except KeyboardInterrupt:
         exit()
 
