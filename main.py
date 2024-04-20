@@ -7,7 +7,7 @@ import sys
 import base64
 
 prefix = f"{Fore.YELLOW}[CD]{Fore.RESET}"
-version = f"v 1.2"
+version = f"v 1.1"
 
 def updater():
     try:
@@ -33,14 +33,11 @@ def updater():
         req = requests.get(url)
         if req.status_code == requests.codes.ok:
             content = req.json()
-            print(content)
             if version == f"v {content}":
                 pass
             else:
-                print("Not OK")
                 content = f"v {content}"
                 update(content)
-            input("")
         else:
             print('Content was not found.')
         if os.path.exists("temp/exiftool.exe") == True:
@@ -86,8 +83,7 @@ def update(content):
     ''')
         print(f"{prefix} Downloading update...")
         link = "https://drive.usercontent.google.com/download?id=1wZ4jKqusrhbUwdbc8QJ5DxX0cL-ETcvW&export=download&authuser=0&confirm=t&uuid=7ff399ee-572a-495c-80b2-52dcdb988dcd&at=APZUnTWeKYzrEpbJyAkDhtPRcXr8%3A1713628369891"
-        file_name = "main.py"
-        with open(file_name, "wb") as f:
+        with open(__file__, "wb") as f:
             response = requests.get(link, stream=True)
             total_length = response.headers.get('content-length')
 
