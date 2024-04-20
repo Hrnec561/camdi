@@ -6,8 +6,11 @@ import requests
 import sys
 
 prefix = f"{Fore.YELLOW}[CD]{Fore.RESET}"
-version = f"v 1.2"
 dev = False
+if dev == True:
+    version = f"v 1.2 Dev"
+else:
+    version = f"v 1.2"
 
 def updater():
     os.system("title " + f"CamDi {version}")
@@ -28,8 +31,6 @@ def updater():
             os.mkdir("temp")
         except FileExistsError:
             pass
-        f = open("temp/info.txt", "w")
-        f.close()
         link = 'https://raw.githubusercontent.com/Hrnec561/camdi/main/version.txt'
         file_name = "temp/version.txt"
         with open(file_name, "wb") as f:
