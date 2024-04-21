@@ -8,5 +8,4 @@ CamDi is camera diagnostic tool that can tell shutter count, camera model, brand
 - **raw** to **jpg** without compression
 
 ## **Credits**
-- [Exiftool]
-(https://exiftool.org)
+- [Exiftool](https://exiftool.org)
