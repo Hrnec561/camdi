@@ -6,3 +6,7 @@ CamDi is camera diagnostic tool that can tell shutter count, camera model, brand
 - user settings
 - denoise
 - **raw** to **jpg** without compression
+
+## **Credits**
+- [Exiftool]
+(https://exiftool.org)
