@@ -1,5 +1,4 @@
-# **CamDi**
-# > v1.3
+# **CamDi** \n > v1.3
 
 CamDi is camera diagnostic tool that can tell shutter count, camera model, brand and lens used to take that photo only from raw photo taken on that camera
 
