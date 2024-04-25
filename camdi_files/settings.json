@@ -1,1 +1,53 @@
-
+{
+    "themes_selected": [
+        {
+            "Nikon": "themes_nikon"
+        }
+    ],
+    "themes": [
+        {
+            "Sony": "themes_sony",
+            "Nikon": "themes_nikon",
+            "Canon": "themes_canon"
+        }
+    ],
+    "camdi_settings_active": [
+        {
+            "Camera brand": "Make",
+            "Camera model": "Camera Model Name",
+            "Shutter count": "Shutter Count",
+            "Lens ID": "Lens ID"
+        }
+    ],
+    "camdi_settings_all": [
+        {
+            "Camera brand": "Make",
+            "Camera model": "Camera Model Name",
+            "Shutter count": "Shutter Count",
+            "Lens ID": "Lens ID",
+            "Bits per sample": "Bits Per Sample",
+            "Aperture": "Aperture",
+            "Shutter speed": "Shutter Speed",
+            "Exposure time": "Exposure Time",
+            "Exposure program": "Exposure Program",
+            "ISO": "ISO",
+            "Flash": "Flash",
+            "Quality": "Quality",
+            "Focus Mode": "Focus Mode",
+            "Shooting mode": "Shooting Mode",
+            "Auto Focus": "Auto Focus",
+            "AF area mode": "AF Area Mode",
+            "Phase detect AF": "Phase Detect AF",
+            "Primary AF point": "Primary AF Point",
+            "AF points used": "AF Points Used",
+            "File source": "File Source",
+            "Contrast": "Contrast",
+            "Saturation": "Saturation",
+            "Sharpness": "Sharpness",
+            "Image size": "Image Size",
+            "Megapixels": "Megapixels",
+            "Create date": "Create Date",
+            "Hyperfocal distance": "Hyperfocal Distance"
+        }
+    ]
+}
